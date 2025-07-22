@@ -9,14 +9,14 @@ const getResizeImage = async (
 ): Promise<string | undefined> => {
   const newFilePath = path.join(
     __dirname,
-    `../images/resized/${filename}-${width}x${height}.jpg`
+    `../assets/resized/${filename}-${width}x${height}.jpg`
   );
 
   try {
     const existingFile = await getExistingFile(newFilePath);
     if (existingFile) return newFilePath;
 
-    const imagePath = path.join(__dirname, `../images/full/${filename}.jpg`);
+    const imagePath = path.join(__dirname, `../assets/full/${filename}.jpg`);
 
     const data = await fsPromises.readFile(imagePath);
     const resizedImgData = await sharp(data)

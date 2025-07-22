@@ -3,7 +3,6 @@ import { getResizeImage } from "../../utils/parseImage";
 
 const api = express.Router();
 
-type FileError = NodeJS.ErrnoException;
 api.get("/image", async (req: express.Request, res: express.Response) => {
   const { filename, width, height } = req.query;
   if (!filename || !width || !height)

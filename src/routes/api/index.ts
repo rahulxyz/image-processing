@@ -26,7 +26,8 @@ api.get("/image", async (req: express.Request, res: express.Response) => {
     );
     if (!newFilePath)
       return res.status(500).json({ error: "Failed to resize image" });
-    res.status(200).sendFile(newFilePath);
+
+    res.sendFile(newFilePath);
   } catch (err: unknown) {
     console.error("Error fetching resized image:", err);
     if(err instanceof Error){

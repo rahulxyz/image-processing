@@ -11,3 +11,5 @@ app.listen(port, () => {
     `Server is listening on http://localhost:${port}/api/image`
   );
 });
+
+export default app;

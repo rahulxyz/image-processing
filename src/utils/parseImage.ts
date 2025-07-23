@@ -1,15 +1,15 @@
-import { constants, promises as fsPromises } from "fs";
-import sharp from "sharp";
-import path from "path";
+import { constants, promises as fsPromises } from 'fs';
+import sharp from 'sharp';
+import path from 'path';
 
 const getResizeImage = async (
   filename: string,
   width: number,
-  height: number
+  height: number,
 ): Promise<string | undefined> => {
   const newFilePath = path.join(
     __dirname,
-    `../assets/resized/${filename}-${width}x${height}.jpg`
+    `../assets/resized/${filename}-${width}x${height}.jpg`,
   );
 
   try {
@@ -26,7 +26,7 @@ const getResizeImage = async (
     await fsPromises.writeFile(newFilePath, resizedImgData);
     return newFilePath;
   } catch (err) {
-    console.error("Error resizing image:", err);
+    console.error('Error resizing image:', err);
     throw err;
   }
 };
@@ -36,7 +36,7 @@ const getExistingFile = async (filename: string) => {
     await fsPromises.access(filename, constants.R_OK | constants.W_OK);
     return filename;
   } catch (err) {
-    console.error("Checking if resized file exists:", err);
+    console.error('Checking if resized file exists:', err);
     return;
   }
 };

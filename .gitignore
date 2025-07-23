@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 .env
 .DS_Store
+.package-lock.json
 
 # Build artifacts
 dist/
